@@ -1,11 +1,15 @@
 call plug#begin('~/.vim/plugins')
 Plug 'dracula/vim', { 'name': 'dracula' }
+
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 
 Plug 'rust-lang/rust.vim'
 call plug#end() " End plugins
-colorscheme dracula " set color scheme
+" dont work on mobile
+let g:dracula_italic = 0
+let g:dracula_colorterm = 0
+colorscheme dracula
 " go langserver
 if executable('gopls')
 	au User lsp_setup call lsp#register_server({
